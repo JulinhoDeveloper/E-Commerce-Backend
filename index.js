@@ -3,6 +3,7 @@ require('dotenv').config();
 const { dbConnection } = require('./database/config');
 const cors = require('cors');
 const userRoute = require('./routes/user');
+const authRoute = require('./routes/auth');
 // criar o servidor
 const app = express();
 
@@ -17,6 +18,7 @@ app.use( express.json({ extended: true }));
 
 // Importar rotas
 app.use('/api/users', userRoute);
+app.use('/api/auth', authRoute);
 
 // porta 
 const port = process.env.PORT;
